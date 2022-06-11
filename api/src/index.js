@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import routes from "./routes.js";
+import db from "./queries.js";
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use(routes);
 
 // insert get and post request routes here
 // add routes for queries
+app.get("/customers", db.getCustomers);
+app.post("/customers", db.addCustomer);
 
 const port = 8080;
 
