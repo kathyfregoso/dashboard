@@ -1,11 +1,12 @@
+import "dotenv/config";
 import pkg from "pg";
 const { Pool } = pkg;
 const pool = new Pool({
-  user: "kathleenfregoso",
-  host: "localhost",
-  database: "northwind",
-  password: "12345",
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.HOST,
+  database: process.env.DB,
+  password: process.env.DB_PW,
+  port: process.env.PORT,
 });
 
 const getCustomers = (req, res) => {
