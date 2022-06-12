@@ -25,7 +25,7 @@ const Table = ({
   return (
     <div>
       <h2>All Customers</h2>
-      <table>
+      <table className={className}>
         <thead>
           <tr>{headerCells}</tr>
         </thead>
