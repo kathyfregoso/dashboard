@@ -2,7 +2,7 @@ import "dotenv/config";
 import pkg from "pg";
 const { Pool } = pkg;
 const isProduction = process.env.NODE_ENV === "production";
-const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PW}@${process.env.HOST}:${process.env.DB_PORT}/${process.env.DB}?sslmode=disable`;
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PW}@${process.env.HOST}:${process.env.DB_PORT}/${process.env.DB}?sslmode=require`;
 
 const pool = new Pool({
   connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
