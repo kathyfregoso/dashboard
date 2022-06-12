@@ -1,15 +1,11 @@
 import "dotenv/config";
 import pkg from "pg";
 const { Pool } = pkg;
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PW}@${process.env.HOST}:${process.env.DB_PORT}/${process.env.DB}?sslmode=disable`;
+
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.HOST,
-  database: process.env.DB,
-  password: process.env.DB_PW,
-  port: process.env.DB_PORT,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  connectionString: connectionString,
+  ssl: connectionString ? true : false,
 });
 
 const getCustomers = (req, res) => {
