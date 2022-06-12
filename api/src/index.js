@@ -10,6 +10,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static("build"));
 
 // register routes
 app.use(routes);
@@ -19,7 +20,7 @@ app.use(routes);
 app.get("/customers", db.getCustomers);
 app.post("/customers", db.addCustomer);
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.listen(port);
 console.log(`server active on port ${port}`);

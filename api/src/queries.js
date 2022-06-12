@@ -6,7 +6,7 @@ const pool = new Pool({
   host: process.env.HOST,
   database: process.env.DB,
   password: process.env.DB_PW,
-  port: process.env.PORT,
+  port: process.env.DB_PORT,
 });
 
 const getCustomers = (req, res) => {
