@@ -6,10 +6,10 @@ import db from "./queries.js";
 
 const app = express();
 
+app.use(cors());
 // get the data from a request
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
 app.use(express.static("build"));
 
 // register routes

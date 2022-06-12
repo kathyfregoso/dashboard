@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:8080";
+const url = "https://mysterious-forest-11881.herokuapp.com";
 
 export const getCustomers = () => {
   // GET REQ
